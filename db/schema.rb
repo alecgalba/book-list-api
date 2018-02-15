@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215185224) do
+ActiveRecord::Schema.define(version: 20180215225441) do
 
   create_table "book_genres", force: :cascade do |t|
     t.integer "book_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180215185224) do
     t.text "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pages"
   end
 
   create_table "genres", force: :cascade do |t|
