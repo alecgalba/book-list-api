@@ -4,7 +4,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.inclides(:genres).search(params[:keyword]).filter(params[:filter])
+    @books = Book.includes(:genres).
+      search(params[:keyword]).filter(params[:filter])
     @genres = Genre.all
   end
 
@@ -70,6 +71,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.fetch(:book).permit(:title, :author, :description, :amazon_id, :pages. { genre_ids: []}, :rating)
+      params.fetch(:book).permit(:title, :author, :description, :amazon_id, :pages, { genre_ids: []}, :rating)
     end
 end
